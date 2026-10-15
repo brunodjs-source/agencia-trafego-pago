@@ -1,0 +1,7 @@
+{
+  "file": "SIGNATURE.md",
+  "sha256": "230daf7ddff29d27a39b90e4ce1f7f3197ffbad7668a7488851638dd7ea140ea",
+  "locked_at": "2026-05-15",
+  "rule": "This hash MUST match SIGNATURE.md SHA-256 at every skill invocation. If differs, ABORT execution.",
+  "author": "Bruno Israel Gonçalves"
+}

@@ -1,0 +1,109 @@
+{
+  "_comentarios": {
+    "obrigatorios": "cliente, pasta, contexto, pedido",
+    "modo": "rapido | padrao | god (padrão: padrao). GOD só com OK do gestor, dizendo a faixa de chamadas da seção 5 do SKILL.md",
+    "data": "AAAA-MM-DD da corrida; o script não pode ler o relógio",
+    "semente": "inteiro qualquer; muda o sorteio de letras e de ordem. Troque a cada corrida",
+    "decisoes": "opcional. Sem elas, o Enquadrador cria a partir do pedido. Use decidivel=false para exploratórias",
+    "frentes": "opcional; até 6 no Padrão e 10 no GOD. agentType e model são opcionais por frente",
+    "cadeiras": "opcional; sem elas entram as 8 genéricas (Padrão usa 6) ou as 14 (GOD). Cada cadeira precisa de id, nome, persona, otimiza, ponto_cego, pergunta; contexto_minimo=true para forasteiro; agentType e model opcionais",
+    "juizes": "opcional; lista de { id, lente, agentType?, model? }",
+    "lentes_verificacao": "opcional; lista de textos de lente",
+    "temas_debate": "opcional; temas que precisam de debate mesmo sem voto rachado",
+    "estrutura_final": "opcional; seções obrigatórias do plano final",
+    "regras_extra": "regras específicas do cliente que todo agente recebe",
+    "limites": "opcional; sobrescreve frentes, cadeiras, juizes, debates, rodadas, votoCego, votoFinal, iteracoes, lentes, redTeam, lacunasMax, ideias, revisaoCruzada",
+    "limiares": "opcional; share, faixa, diversidade, estabilidade, quorum",
+    "modelo_juiz": "opcional; modelo do moderador, dos verificadores e dos juízes sem modelo próprio. Não testado neste ambiente",
+    "pecas_visuais": "opcional; caminhos de peças que precisam de CRAFT",
+    "skill_dir": "pasta da skill, para os agentes acharem o modelo do brief e o esquema do diário. Ajustar depois da instalação",
+    "revisao_cruzada": "opcional; true liga a revisão cruzada anônima das cadeiras (mais 1 chamada por cadeira)"
+  },
+  "cliente": "ClienteG",
+  "modo": "padrao",
+  "data": "2026-10-07",
+  "slug": "plano-google-ads",
+  "semente": 7310,
+  "pasta": "<PASTA_DO_PROJETO>\ClienteG\\plano-crescimento",
+  "contexto": "<PASTA_DO_PROJETO>\ClienteG\\plano-crescimento\\00-contexto.md",
+  "skill_dir": "<PASTA_DO_PROJETO>\ClienteG\\plano-crescimento\\skill-agencia-reunida-modo-god",
+  "pedido": "Plano de crescimento da ClienteG no Google Ads e no funil: 20 concorrentes (10 que atendem contabilidade, 10 que atendem advocacia); nicho que mais busca; palavras com mais busca; campanhas que dão mais resultado; se Search, quanto investir por dia; se Vídeo, quais canais do YouTube de autoridade; quais portais para Display; se precisa corrigir o site e colocar funil com LP explicando a prevenção; funil completo; chatbot de atendimento; plano validado por conselho.",
+  "regras_extra": "Conta Google Ads <ID_CONTA> somente leitura (nunca mutate). Preço oficial ainda pendente de decisão do cliente: não anunciar valor sem a decisão. Peças para advocacia seguem o Provimento 205/2021 da OAB. Palavra-chave com marca de terceiro (ex.: suporte alterdata) passa pelo Guardião de Regras e pelo Red Team.",
+  "decisoes": [
+    {
+      "id": "D1",
+      "pergunta": "Qual nicho atacar primeiro na mídia paga?",
+      "afirmacao_falsificavel": "Com o mesmo orçamento, termos ligados a escritório contábil geram ao menos [X] leads qualificados a mais por mês do que termos ligados a advocacia, em 60 dias.",
+      "criterio_sucesso": "Leads qualificados por nicho no CRM, 60 dias após o início",
+      "opcoes_iniciais": ["Contabilidade primeiro", "Advocacia primeiro", "PME genérica de SP com mensagem para escritórios", "Não segmentar por nicho agora"],
+      "custo_de_reverter": "baixo: trocar grupos de anúncio e LP"
+    },
+    {
+      "id": "D2",
+      "pergunta": "Quanto investir por dia na Rede de Pesquisa no lançamento?",
+      "afirmacao_falsificavel": "Subir de R$ 10 para R$ [Y] por dia, com a LP de prevenção no ar, mantém o custo por lead qualificado abaixo de R$ [Z] por 30 dias.",
+      "criterio_sucesso": "Custo por lead qualificado em 30 dias, medido na conta <ID_CONTA> e no CRM",
+      "opcoes_iniciais": ["R$ 30 por dia", "R$ 50 por dia", "R$ 30 com degrau para R$ 50 depois de 10 dias", "Manter R$ 10 até corrigir o site"],
+      "custo_de_reverter": "baixo: verba diária muda a qualquer momento"
+    },
+    {
+      "id": "D3",
+      "pergunta": "Anunciar em buscas com nome de sistema contábil (ex.: suporte alterdata)?",
+      "afirmacao_falsificavel": "Anunciar em buscas como 'suporte alterdata' traz lead de escritório que usa o sistema sem gerar reclamação de marca nem anúncio reprovado em 30 dias.",
+      "criterio_sucesso": "Leads qualificados vindos desses termos e zero reprovação ou reclamação de marca em 30 dias",
+      "opcoes_iniciais": ["Sim, com termos de problema e sem a marca no texto do anúncio", "Só como negativa", "Não agora; reavaliar depois de 30 dias de Search"],
+      "custo_de_reverter": "desconhecido: risco de marca de terceiro"
+    },
+    {
+      "id": "D4",
+      "pergunta": "Corrigir o site antes de aumentar a verba?",
+      "afirmacao_falsificavel": "Corrigir preço único, logo e velocidade antes de aumentar verba reduz o custo por lead em ao menos [W]%.",
+      "criterio_sucesso": "Custo por lead antes e depois da correção, mesma verba",
+      "opcoes_iniciais": ["Corrigir tudo antes", "LP dedicada leve primeiro e site depois", "Rodar em paralelo"],
+      "custo_de_reverter": "médio"
+    },
+    {
+      "id": "D5",
+      "pergunta": "Começar Vídeo ou Display agora?",
+      "afirmacao_falsificavel": "Começar YouTube ou Display antes de ter 30 dias de Search com conversão medida piora o custo por lead do mês.",
+      "criterio_sucesso": "Custo por lead do mês com e sem Vídeo e Display",
+      "opcoes_iniciais": ["Não, só depois de 30 dias de Search medido", "Remarketing pequeno desde o início", "Vídeo em posicionamentos selecionados desde o início"],
+      "custo_de_reverter": "baixo"
+    }
+  ],
+  "perguntas": [
+    "Nicho principal e sequência, considerando que buscas 'TI para [nicho]' quase não existem",
+    "Campanhas a criar: Search (grupos, palavras, correspondência, negativas, verba), Vídeo, Display e remarketing, Demand Gen ou PMax (sim ou não e por quê)",
+    "Oferta de entrada e preço a comunicar",
+    "O site precisa ser corrigido antes? LP de prevenção: como",
+    "Funil completo e chatbot com IA",
+    "Mensuração e otimização",
+    "Cronograma acelerado em dias",
+    "Metas e critérios de parar ou escalar"
+  ],
+  "frentes": [
+    { "key": "R1", "label": "concorrentes-contabilidade", "agentType": "scout-niche-researcher", "missao": "Fichar as 10 empresas brasileiras mais parecidas com o cliente vendendo TI gerenciada para escritórios de contabilidade. Confirmar cada site no ar. Para cada uma: URL, cidade, nicho, serviços, preço público ou 'não publica', oferta de entrada, prova social, canais, sinais de anúncio pago (como verificou), diferencial e ponto fraco. Fechar com tabela contra o cliente e 5 lições." },
+    { "key": "R3", "label": "demanda-palavras", "agentType": "probe-meta-interests-validator", "missao": "Mapa de demanda a partir do Planejador de Palavras-chave (somente leitura, 1 chamada a cada 1,5 s): nicho com mais busca, escada de intenção em 5 degraus com volume e CPC, listas por grupo de anúncio, negativas iniciais e alerta jurídico sobre marca de terceiro como palavra-chave." },
+    { "key": "R4", "label": "auditoria-google-ads", "agentType": "trace-traffic-analyst", "missao": "Auditoria somente leitura da conta <ID_CONTA> via GAQL: campanhas, termos de pesquisa, conversões, parcela de impressões, redes, geo, histórico de mudanças. Erro de consulta nunca vira dado vazio." },
+    { "key": "R7", "label": "funil-lp", "agentType": "lex-cro-landing-page", "missao": "Funil do clique ao contrato e LP de prevenção: o que corrigir antes da mídia, estrutura seção por seção, oferta de entrada, taxas por etapa com fonte ou estimativa marcada, mensuração." },
+    { "key": "R8", "label": "chatbot-automacao", "agentType": "volt-automation-engineer", "missao": "Projeto (sem criar nada) do atendimento automatizado: arquitetura, roteiro do bot, regras da IA, follow-up, GCLID e conversões offline, LGPD, esforço em horas." },
+    { "key": "R9", "label": "orcamento-economia", "agentType": "buck-budget-optimizer", "missao": "Economia unitária e verba: receita por cliente em cenários, LTV, CAC máximo, funil reverso, verba mínima e máxima útil pela demanda, 3 cenários, regras de escala e corte." }
+  ],
+  "temas_debate": [],
+  "estrutura_final": [
+    "Resumo executivo (o que fazer, quanto investir, o que esperar, sem prometer certeza)",
+    "Nicho escolhido com números do Planejador",
+    "Concorrentes em tabela",
+    "Palavras e listas por grupo de anúncio, negativas",
+    "Campanhas a criar, uma por uma",
+    "Verba diária: três cenários e o recomendado, com funil reverso",
+    "Correções do site e LP de prevenção",
+    "Funil e chatbot",
+    "Mensuração",
+    "Cronograma",
+    "Metas, scorecard e critérios de parar e escalar",
+    "Riscos e plano B",
+    "Decisões que dependem do cliente"
+  ],
+  "pecas_visuais": []
+}

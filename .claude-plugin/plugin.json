@@ -1,0 +1,9 @@
+{
+  "name": "agencia-trafego-pago",
+  "version": "1.0.0",
+  "description": "Agência Tráfego Pago: cria agências completas por nicho, com os subfuncionamentos Tráfego Inteligente (Meta Ads + Google Ads) e Agência Reunida Modo GOD (conselho de decisão).",
+  "author": { "name": "Bruno Israel Gonçalves", "url": "https://agenciatrafegopago.com.br" },
+  "homepage": "https://agenciatrafegopago.com.br",
+  "repository": "https://github.com/brunodjs-source/agencia-trafego-pago",
+  "keywords": ["trafego-pago", "meta-ads", "google-ads", "agencia", "marketing"]
+}

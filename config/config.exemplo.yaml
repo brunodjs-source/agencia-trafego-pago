@@ -1,0 +1,17 @@
+# Copie para ~/.agencia-trafego-pago/config.yaml e preencha com os SEUS dados.
+gestor: "Seu Nome"
+google_ads:
+  mcc_id: "0000000000"          # login-customer-id (sem traços)
+padroes:
+  budget_search_b2b_dia: 50
+  ajuste_dispositivo: { mobile: -30, tablet: -10, desktop: 0 }
+clientes:
+  cliente_exemplo:
+    nicho: "Jurídico"
+    google_customer_id: "0000000000"
+    meta_ad_account: "act_000000000000000"
+    pixel_id: "000000000000000"
+    conversoes: { lead_whatsapp: "0000000000" }
+    gtm: "GTM-XXXXXXX"
+    ga4: "G-XXXXXXXXXX"
+    compliance: ["OAB"]

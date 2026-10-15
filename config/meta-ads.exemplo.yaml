@@ -1,0 +1,8 @@
+# Copie para ~/.agencia-trafego-pago/meta-ads.yaml — NUNCA faça commit deste arquivo preenchido.
+api_version: "v22.0"
+cliente_exemplo:
+  system_user:
+    access_token: "SEU_TOKEN_SYSTEM_USER"
+  ad_account_id: "act_000000000000000"
+  business_id: "000000000000000"
+  page_id: "000000000000000"

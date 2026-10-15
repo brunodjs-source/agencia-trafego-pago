@@ -1,0 +1,5 @@
+config/*.yaml
+!config/*.exemplo.yaml
+*.env
+.env*
+agencias-geradas/

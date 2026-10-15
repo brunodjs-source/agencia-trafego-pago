@@ -1,0 +1,12 @@
+{
+  "name": "agencia-trafego-pago",
+  "owner": { "name": "Bruno Israel Gonçalves", "url": "https://agenciatrafegopago.com.br" },
+  "plugins": [
+    {
+      "name": "agencia-trafego-pago",
+      "source": "./",
+      "description": "Agência Tráfego Pago + Tráfego Inteligente + Agência Reunida Modo GOD",
+      "version": "1.0.0"
+    }
+  ]
+}
