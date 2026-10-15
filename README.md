@@ -63,15 +63,19 @@ Reinicie o Claude Code. Pronto.
 
 **Para atualizar depois:** `/plugin marketplace update agencia-trafego-pago`
 
-### Opção B — claude.ai (site ou app)
-1. Baixe os `.zip` da pasta [`dist/`](dist):
-   - `agencia-trafego-pago.zip`
-   - `trafego-inteligente.zip`
-   - `agencia-reunida-modo-god.zip`
-2. No claude.ai, vá em **Settings → Capabilities → Skills → Upload skill**.
-3. Envie os 3 arquivos, um de cada vez, e deixe todos ativados.
+### Opção B — App Claude ou claude.ai (sem terminal)
+> ⚠️ Os comandos `/plugin ...` **só funcionam no Claude Code (terminal)**. No app Claude e no claude.ai, instale pelos arquivos abaixo.
 
-> No claude.ai, os 7 agentes da pasta `agents/` não são instalados. As skills funcionam, mas a equipe Tráfego Inteligente roda melhor no Claude Code.
+**B1. Plugin completo (app Claude com Cowork):**
+1. Baixe [`dist/agencia-trafego-pago.plugin`](dist/agencia-trafego-pago.plugin) (clique no arquivo → botão **Download raw**).
+2. No app, abra **Customize → Plugins → Upload plugin** (ou arraste o arquivo para a conversa) e confirme.
+
+**B2. Só as skills (claude.ai ou app):**
+1. Baixe os 3 `.zip` da pasta [`dist/`](dist): `agencia-trafego-pago.zip`, `trafego-inteligente.zip` e `agencia-reunida-modo-god.zip`.
+2. Vá em **Settings → Capabilities → Skills → Upload skill** e envie um por vez, **sem descompactar**.
+3. Deixe os 3 ativados.
+
+> Nesse modo os 7 agentes da pasta `agents/` não são instalados. As skills funcionam, mas a equipe Tráfego Inteligente roda melhor no Claude Code.
 
 ### Opção C — Manual (Claude Code, sem marketplace)
 ```bash
