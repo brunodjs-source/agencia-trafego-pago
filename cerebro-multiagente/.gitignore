@@ -1,0 +1,7 @@
+# credenciais e autorizações preenchidas nunca vão pro repo
+config/*.yaml
+!config/*.exemplo.yaml
+*.env
+.env*
+~/.cerebro-multiagente/
+node_modules/

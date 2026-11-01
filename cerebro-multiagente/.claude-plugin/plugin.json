@@ -1,0 +1,24 @@
+{
+  "name": "cerebro-multiagente",
+  "version": "0.1.0",
+  "description": "Cérebro multiagente: um orquestrador que planeja, constrói e audita sistemas completos (frontend + backend + infra + dados + ML) com um conselho de decisão adversarial e auditoria de segurança autorizada. Potencializa ECC (71 agentes, 314 skills) e REA (engenharia reversa) instalados ao lado.",
+  "author": {
+    "name": "Bruno Israel Gonçalves",
+    "url": "https://agenciatrafegopago.com.br"
+  },
+  "homepage": "https://agenciatrafegopago.com.br",
+  "repository": "https://github.com/brunodjs-source/cerebro-multiagente",
+  "license": "MIT",
+  "keywords": [
+    "multiagent",
+    "orchestration",
+    "full-stack",
+    "decision-council",
+    "security-audit",
+    "reverse-engineering",
+    "claude-code",
+    "agents",
+    "skills"
+  ],
+  "mcpServers": {}
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "cerebro-multiagente",
+  "owner": {
+    "name": "Bruno Israel Gonçalves",
+    "url": "https://agenciatrafegopago.com.br"
+  },
+  "plugins": [
+    {
+      "name": "cerebro-multiagente",
+      "source": "./",
+      "description": "Cérebro multiagente: orquestrador de construção de sistemas completos + conselho de decisão + auditoria de segurança autorizada.",
+      "version": "0.1.0",
+      "category": "development"
+    }
+  ]
+}
